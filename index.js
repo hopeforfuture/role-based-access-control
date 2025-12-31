@@ -13,8 +13,13 @@ const app = express();
 app.use(express.json());
 app.use(express.static("public"));
 
+//Auth route
 const authRoute = require("./routes/authRoute");
-app.use("/api/v1", authRoute);
+app.use("/api/v1/user", authRoute);
+
+//Admin route
+const adminRoute = require("./routes/adminRoute");
+app.use("/api/v1/admin", adminRoute);
 
 const port = process.env.SERVER_PORT || 5000;
 
